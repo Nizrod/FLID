@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: .docker/${APP_ENV}/Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+    networks:
+      - app_network
+
+  db:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - db:/data/db
+    networks:
+      - app_network
+
+networks:
+  app_network:
+
+volumes:
+  db:
