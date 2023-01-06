@@ -1,0 +1,5 @@
+{
+  "create_database": "use flid_db",
+  "create_users_collection": "db.createCollection('users')",
+  "create_users_index": "db.users.createIndex({email: 1}, {unique: true})"
+}
